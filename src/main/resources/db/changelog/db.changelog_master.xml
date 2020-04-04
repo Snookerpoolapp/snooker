@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+	<include file="/db/changelog/db.constants.xml" />
+    <include file="/db/changelog/db.create_tables.xml" />
+
+
+    <include file="/db/changelog/db.load_roles.xml" />
+    <include file="/db/changelog/db.load_accounts.xml" />
+    <include file="/db/changelog/db.load_account_roles.xml" />
+    <include file="/db/changelog/db.load_persons.xml" />
+
+    <include file="/db/changelog/db.load_continents.xml" />
+    <include file="/db/changelog/db.load_countries.xml" />
+    <include file="/db/changelog/db.load_default.states.xml" />
+    <include file="/db/changelog/db.load_default_sa_cities.xml" />
+
+
+    <include file="/db/changelog/db.team_tables.xml" />
+    <include file="/db/changelog/db.venue_tables.xml" />
+
+
+    <include file="/db/changelog/db.load_inventory_categories.xml" />
+
+
+
+   
+    
+</databaseChangeLog>

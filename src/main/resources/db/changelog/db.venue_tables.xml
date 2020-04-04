@@ -1,0 +1,65 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="${author}" id="venueTables">
+
+        <createTable tableName="${venueTable}">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(25)">
+                <constraints nullable="false" />
+            </column>
+            <column name="desc" type="VARCHAR(255)" />
+            <column name="city_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_city_id" references="${cityTable}(id)" />
+            </column>
+            <column name="audience_quantity" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="unit_number" type="VARCHAR(255)" />
+            <column name="street_name" type="VARCHAR(255)" />
+            <column name="unit_name" type="VARCHAR(255)" />
+            <column name="longitude" type="VARCHAR(20)" />
+            <column name="latitude" type="VARCHAR(20)" />
+            <column name="added_by" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_added_by" references="${accountTable}(id)"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="${inventoryCategoryTable}">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="category" type="VARCHAR(25)">
+                <constraints nullable="false" />
+            </column>
+            <column name="desc" type="VARCHAR(255)" />
+        </createTable>
+
+
+        <createTable tableName="${venueInventoryTable}">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="venue_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_venue_inventory_venue_id" references="${venueTable}(id)"/>
+            </column>
+            <column name="inventory_category_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_venue_inventory_inventory_category_id" references="${inventoryCategoryTable}(id)"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="desc" type="VARCHAR(255)" />
+            <column name="added_by" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_venue_inventory_added_by" references="${accountTable}(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

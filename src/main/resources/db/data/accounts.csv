@@ -1,0 +1,7 @@
+id,username,email,password,status,is_locked,is_active,created_date,expiry_date
+202001,glen,glen-tsiame@dclm.org,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04
+202002,admin,admin@plugit.co.za,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04
+202003,nomfundo,nomfundo@gmail.com,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04
+202004,fedora,fedora@plugit.co.za,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04
+202005,blessy,blessy@plugit.co.za,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04
+202006,langi,langi@plugit.co.za,$2a$10$2n3vWaX9unm8b03S7XNeXuWtBCBsHvYYxAaddWEjzIiVbJZvfxlp2,1,0,1,2020-04-04 18:41:04,2020-05-04

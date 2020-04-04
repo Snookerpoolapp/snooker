@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+        
+	<property name="expiry_date" value="DATE_ADD(CURRENT_DATE,INTERVAL 30 DAY)" />
+	<property name="author" value="Mothusi Molorane" />
+	<property name="roleTable" value="tbl_role" />
+	<property name="accountTable" value="account" />
+	<property name="accountRoleTable" value="account_role" />
+	<property name="personTable" value="person" />
+	<property name="continentTable" value="continent" />
+	<property name="countryTable" value="country" />
+	<property name="stateTable" value="state" />
+	<property name="cityTable" value="city" />
+	<property name="teamTable" value="team" />
+	<property name="teamMemberTable" value="team_member" />
+	<property name="venueTable" value="venue" />
+	<property name="inventoryCategoryTable" value="inventory_category" />
+	<property name="venueInventoryTable" value="venue_inventory" />
+
+</databaseChangeLog>

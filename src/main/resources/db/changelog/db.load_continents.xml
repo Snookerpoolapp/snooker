@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+        <changeSet author="${author}" id="continent-data">
+            <preConditions onErrorMessage="Failed Pre Conditions for table" onFail="HALT">
+                <and>
+                    <tableExists tableName="${continentTable}" />
+                    <sqlCheck expectedResult ="1">SELECT COUNT(*) ${continentTable}</sqlCheck>
+                </and>
+            </preConditions>
+            <comment>Adding Contients Data...</comment>
+            <loadData tableName="${continentTable}"
+                      encoding="UTF-8"
+                      file="/db/data/continents.csv"
+                      separator=",">
+            </loadData>
+        </changeSet>
+
+
+</databaseChangeLog>

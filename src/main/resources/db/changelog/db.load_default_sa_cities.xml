@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="${author}" id="default-sa-cities-data">
+        <preConditions onErrorMessage="Failed Pre Conditions for table" onFail="HALT">
+            <and>
+                <tableExists tableName="${cityTable}" />
+                <sqlCheck expectedResult ="1">SELECT COUNT(*) ${cityTable}</sqlCheck>
+            </and>
+        </preConditions>
+        <comment>Adding Cities Data...</comment>
+        <loadData tableName="${cityTable}"
+                  encoding="UTF-8"
+                  file="/db/data/db.default-sa-cities.csv"
+                  separator=",">
+        </loadData>
+    </changeSet>
+
+
+</databaseChangeLog>

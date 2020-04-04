@@ -1,0 +1,47 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="${author}" id="teamTables">
+
+        <createTable tableName="${teamTable}">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(25)">
+                <constraints nullable="false" />
+            </column>
+            <column name="desc" type="VARCHAR(255)" />
+            <column name="city_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_city_id" references="${cityTable}(id)" />
+            </column>
+            <column name="unit_number" type="VARCHAR(255)" />
+            <column name="street_name" type="VARCHAR(255)" />
+            <column name="unit_name" type="VARCHAR(255)" />
+            <column name="longitude" type="VARCHAR(20)" />
+            <column name="latitude" type="VARCHAR(20)" />
+            <column name="added_by" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_added_by" references="${accountTable}(id)"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="${teamMemberTable}">
+            <column name="team_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_member_team_id" references="${teamTable}(id)"/>
+            </column>
+            <column name="player_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_member_player_id" references="${personTable}(account_id)"/>
+            </column>
+            <column name="join_date" type="timestamp with time zone" defaultValueComputed="current_timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="added_by" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_team_member_added_by" references="${accountTable}(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

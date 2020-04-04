@@ -1,0 +1,8 @@
+id,name,desc
+1, Player, Just a player
+2, Admin, Admin information
+3, TeamManager, He manages a team add members remove members etc
+4, VenueManager, he manages a venue
+5, TournamentManager, manages a tournament
+6, StateManager, manages a state
+7, CityManager, manages a city

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="${author}" id="default-states-data">
+        <preConditions onErrorMessage="Failed Pre Conditions for table" onFail="HALT">
+            <and>
+                <tableExists tableName="${stateTable}" />
+                <sqlCheck expectedResult ="1">SELECT COUNT(*) ${stateTable}</sqlCheck>
+            </and>
+        </preConditions>
+        <comment>Adding States Data...</comment>
+        <loadData tableName="${stateTable}"
+                  encoding="UTF-8"
+                  file="/db/data/south-africa-state.csv"
+                  separator=",">
+        </loadData>
+    </changeSet>
+
+
+</databaseChangeLog>
